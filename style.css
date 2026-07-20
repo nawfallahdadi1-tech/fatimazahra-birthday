@@ -1,0 +1,146 @@
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#170b11;
+  --cream:#f7f0ea;
+  --rose:#cf8399;
+  --deep:#5d2235;
+  --gold:#d8aa63;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,sans-serif;
+  background:var(--ink);
+  color:var(--cream);
+  overflow-x:hidden;
+}
+body.locked{overflow:hidden}
+img{display:block;width:100%}
+button{font:inherit}
+.noise{
+  position:fixed;inset:0;pointer-events:none;z-index:80;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+.intro-screen{
+  position:fixed;inset:0;z-index:100;background:#090508;display:grid;place-items:center;
+  transition:opacity 1s ease,visibility 1s ease;
+}
+.intro-screen.hide{opacity:0;visibility:hidden}
+.intro-inner{text-align:center;padding:28px}
+.intro-inner p{font-family:"Cormorant Garamond",serif;font-size:clamp(1.3rem,3vw,2rem);margin:16px 0;color:#e9dde1}
+.intro-inner h1{font-family:"Great Vibes",cursive;font-size:clamp(4rem,9vw,8rem);font-weight:400;color:#f1b7c8}
+.fade-line{opacity:0;transform:translateY(18px);animation:introFade 1s forwards}
+.delay-1{animation-delay:.4s}.delay-2{animation-delay:1.4s}.delay-3{animation-delay:2.5s}.delay-4{animation-delay:3.7s}.delay-5{animation-delay:4.7s}
+.begin-btn,.final-btn{
+  margin-top:28px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);
+  color:white;padding:15px 24px;border-radius:999px;cursor:pointer;backdrop-filter:blur(10px);
+  transition:.3s ease;
+}
+.begin-btn:hover,.final-btn:hover{background:#fff;color:#3b1220;transform:translateY(-2px)}
+@keyframes introFade{to{opacity:1;transform:none}}
+.chapter{position:relative;min-height:100vh}
+.hero{
+  display:grid;place-items:center;text-align:center;
+  background:
+    linear-gradient(rgba(18,8,13,.45),rgba(18,8,13,.75)),
+    url("assets/agadir_sunset.jpeg") center/cover fixed;
+}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,transparent,rgba(0,0,0,.55))}
+.hero-content{position:relative;z-index:2;padding:30px}
+.kicker{text-transform:uppercase;letter-spacing:.28em;font-size:.72rem;color:#e8b0c0;margin-bottom:18px}
+.hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(4rem,10vw,9rem);line-height:.78}
+.hero h1 span{font-family:"Great Vibes",cursive;font-weight:400;color:#f0b0c4}
+.hero-sub{max-width:620px;margin:30px auto 26px;line-height:1.8;color:#f0e8eb}
+.countdown{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.countdown div{width:92px;padding:15px 10px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);border-radius:18px;backdrop-filter:blur(10px)}
+.countdown span{display:block;font-size:1.8rem;font-weight:600}
+.countdown small{font-size:.68rem;text-transform:uppercase;letter-spacing:.15em;color:#e8b0c0}
+.scroll-cue{position:absolute;bottom:24px;font-size:.75rem;letter-spacing:.15em;opacity:.65}
+.section-title{text-align:center;max-width:800px;margin:0 auto 60px}
+.section-title span,.agadir-intro span{font-size:.75rem;text-transform:uppercase;letter-spacing:.25em;color:var(--rose)}
+.section-title h2,.agadir-intro h2{font-family:"Cormorant Garamond",serif;font-size:clamp(3rem,7vw,6rem);font-weight:500}
+.section-title p,.agadir-intro p{max-width:620px;margin:14px auto;line-height:1.8;color:#cabec2}
+.childhood{background:var(--cream);color:#321622;padding:110px 6%}
+.polaroid-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr .9fr 1fr;gap:40px;align-items:center}
+.polaroid{background:white;padding:16px 16px 45px;box-shadow:0 25px 60px rgba(55,20,30,.18)}
+.polaroid img{height:460px;object-fit:cover}
+.polaroid figcaption{font-family:"Great Vibes",cursive;text-align:center;font-size:1.8rem;color:#6d3043;margin-top:16px}
+.tilt-left{transform:rotate(-3deg)}.tilt-right{transform:rotate(3deg)}
+.childhood-text p{font-family:"Cormorant Garamond",serif;font-size:1.55rem;line-height:1.5;margin:18px 0}
+.childhood-text blockquote{font-family:"Great Vibes",cursive;font-size:2.2rem;color:#a65770;margin-top:28px}
+.portrait-chapter{height:110vh;overflow:hidden;display:flex;align-items:flex-end}
+.portrait-bg{position:absolute;inset:0;height:100%;object-fit:cover;object-position:center 22%}
+.portrait-shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,5,8,.95),rgba(10,5,8,.08) 55%)}
+.portrait-copy{position:relative;z-index:2;padding:8% 7%;max-width:700px}
+.portrait-copy h2{font-family:"Great Vibes",cursive;font-size:clamp(5rem,10vw,9rem);font-weight:400;color:#f2b6c7}
+.portrait-copy p:last-child{font-family:"Cormorant Garamond",serif;font-size:1.6rem;line-height:1.6}
+.beginning{background:#251018;display:grid;place-items:center;padding:90px 7%}
+.story-card{max-width:900px;padding:70px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);border-radius:32px}
+.chapter-number{font-family:"Cormorant Garamond",serif;font-size:6rem;color:rgba(255,255,255,.08)}
+.story-card h2{font-family:"Cormorant Garamond",serif;font-size:clamp(3rem,7vw,6rem);color:#efb3c5}
+.story-card p{font-size:1.05rem;line-height:1.9;margin-top:24px;color:#ddcfd4}
+.memories{padding:110px 5%;background:#10090c}
+.memory-grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.memory-card{background:#1e1116;border-radius:22px;overflow:hidden}
+.memory-card img{height:340px;object-fit:cover}
+.memory-card figcaption{padding:18px 18px 22px;font-family:"Cormorant Garamond",serif;font-size:1.25rem;color:#eadde2}
+.memory-card.tall{grid-row:span 2}.memory-card.tall img{height:760px}
+.memory-card.wide{grid-column:span 2}.memory-card.wide img{height:420px}
+.agadir{background:#32150d;padding:110px 0 0}
+.agadir-intro{text-align:center;padding:0 6% 70px}
+.sunset-panel{height:100vh;position:relative}
+.sunset-panel img{height:100%;object-fit:cover}
+.sunset-panel:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(31,11,4,.8))}
+.sunset-text{position:absolute;z-index:2;left:7%;bottom:10%}
+.sunset-text p{font-family:"Cormorant Garamond",serif;font-size:1.8rem}
+.sunset-text h3{font-family:"Great Vibes",cursive;font-size:clamp(4rem,8vw,8rem);font-weight:400}
+.beach-panel{display:grid;grid-template-columns:1.25fr .75fr;align-items:center;background:#f1d2b8;color:#4b2419}
+.beach-panel img{height:720px;object-fit:cover}
+.beach-panel div{padding:60px}
+.beach-panel p{font-family:"Cormorant Garamond",serif;font-size:2rem;line-height:1.55}
+.little-things{background:#0d090a;padding:110px 6%}
+.vhs-wrap{max-width:1050px;margin:auto;position:relative}
+.vhs-wrap img{max-height:760px;object-fit:contain;background:black;border-radius:24px}
+.vhs-copy{text-align:center;margin-top:35px}
+.vhs-copy p{color:#bfaeb4}.vhs-copy h3{font-family:"Great Vibes",cursive;font-size:4rem;color:#efb3c5}
+.home-chapter{height:110vh;overflow:hidden}
+.home-chapter img{height:100%;object-fit:cover}
+.home-overlay{position:absolute;inset:0;background:rgba(0,0,0,.25)}
+.home-word{position:absolute;inset:0;display:grid;place-items:center;font-family:"Great Vibes",cursive;font-size:clamp(7rem,20vw,18rem);text-shadow:0 15px 50px rgba(0,0,0,.55)}
+.letter-chapter{background:var(--cream);color:#3b1b27;display:grid;place-items:center;padding:110px 6%}
+.letter{max-width:900px;background:white;padding:70px;border-radius:32px;box-shadow:0 25px 70px rgba(66,28,41,.13)}
+.letter h2{font-family:"Cormorant Garamond",serif;font-size:clamp(3rem,7vw,6rem)}
+.letter p{font-family:"Cormorant Garamond",serif;font-size:1.45rem;line-height:1.65;margin-top:24px}
+.signature{font-family:"Great Vibes",cursive!important;font-size:2.5rem!important;color:#b75e79}
+.promise{display:grid;place-items:center;text-align:center;background:radial-gradient(circle at center,#4f1c2e,#13090e);padding:90px 7%}
+.promise-inner{max-width:850px}
+.promise h2{font-family:"Cormorant Garamond",serif;font-size:clamp(3rem,7vw,6rem)}
+.promise p{font-size:1.08rem;line-height:1.9;color:#decfd4;margin-top:22px}
+.finale{position:fixed;inset:0;z-index:120;background:#050304;display:none;place-items:center;text-align:center;padding:30px}
+.finale.show{display:grid;animation:finalFade 1s ease}
+.finale-content p{font-family:"Cormorant Garamond",serif;font-size:1.6rem;color:#d7c9ce}
+.finale-content h2{font-family:"Cormorant Garamond",serif;font-size:clamp(3rem,8vw,7rem);margin:24px 0}
+.finale-content h3{font-family:"Great Vibes",cursive;font-size:clamp(4rem,10vw,9rem);font-weight:400;color:#f2b3c7}
+.close-final{position:absolute;right:22px;top:18px;background:none;border:0;color:white;font-size:2rem;cursor:pointer}
+.music-toggle{position:fixed;right:20px;bottom:20px;z-index:70;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(20,8,13,.65);color:white;cursor:pointer;backdrop-filter:blur(10px)}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .9s ease,transform .9s ease}
+.reveal.visible{opacity:1;transform:none}
+.hearts{position:fixed;inset:0;pointer-events:none;z-index:110}
+.heart{position:absolute;bottom:-40px;animation:floatHeart linear forwards}
+@keyframes floatHeart{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+@keyframes finalFade{from{opacity:0}to{opacity:1}}
+@media(max-width:900px){
+  .polaroid-grid{grid-template-columns:1fr}.polaroid{max-width:520px;margin:auto}.tilt-left,.tilt-right{transform:none}
+  .memory-grid{grid-template-columns:1fr 1fr}.memory-card.tall{grid-row:auto}.memory-card.tall img{height:420px}
+  .beach-panel{grid-template-columns:1fr}.beach-panel img{height:560px}
+}
+@media(max-width:600px){
+  .hero{background-attachment:scroll}
+  .countdown div{width:74px}.countdown span{font-size:1.45rem}
+  .childhood,.memories,.little-things,.letter-chapter{padding:80px 5%}
+  .polaroid img{height:380px}
+  .story-card,.letter{padding:38px 24px}
+  .memory-grid{grid-template-columns:1fr}
+  .memory-card.wide{grid-column:auto}.memory-card img,.memory-card.wide img,.memory-card.tall img{height:420px}
+  .beach-panel div{padding:38px 24px}.beach-panel p{font-size:1.55rem}
+  .portrait-copy{padding:10% 6%}
+}
